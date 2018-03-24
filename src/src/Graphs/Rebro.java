@@ -3,39 +3,37 @@ package Graphs;
 public class Rebro {
 	// направление будем указывать знаком так: [1, -2] значит что из 1 есть вектор в 2 но не
 	// наоборот и [-1,3] означает что направление есть из 3 в 1, но не 1 -> 3.
-	private int[] twoBindedVertexes = new int[2];
+	private int myName;
+	private int signedBindedVertex;
 	
-	public Rebro(int[] twoBindedVertexes) {
-		this.twoBindedVertexes = twoBindedVertexes;
+	public int getMyName( ) {
+		return myName;
 	}
 	
-	public int[] getTwoBindedVertexes( ) {
-		return twoBindedVertexes;
+	public void setMyName(int myName) {
+		this.myName = myName;
 	}
 	
-	public int getFirstVertexes( ) {
-		return twoBindedVertexes[0];
+	public Rebro(int myName, int signedBindedVertex) {
+		this.myName = myName;
+		
+		this.signedBindedVertex = signedBindedVertex;
 	}
 	
-	public int getSecondVertexes( ) {
-		return twoBindedVertexes[1];
+	public int getBindedVertexe( ) {
+		return signedBindedVertex;
 	}
 	
-	public void setTwoBindedVertexes(int[] twoBindedVertexes) {
-		this.twoBindedVertexes = twoBindedVertexes;
+	public void setBindedVertexe(int bindedVertexe) {
+		this.signedBindedVertex = signedBindedVertex;
 	}
 	
 	public long hashCode(Rebro rebro) {
 		if(rebro == null) {
 			return 0;
 		}
-		
-		long result = 1;
-		for(int element : rebro.getTwoBindedVertexes()) {
-			long elementHash = element ^ (element >>> 32);
-			result = 31 * result + elementHash;
-		}
-		return result;
+		int element = rebro.getMyName();
+		return 31 + element ^ (element >>> 32);
 	}
 	
 	@Override
@@ -44,8 +42,8 @@ public class Rebro {
 			return true;
 		}
 		Rebro rebro = (Rebro)o;
-		return getFirstVertexes() == rebro.getFirstVertexes() && getSecondVertexes() == rebro
-				.getSecondVertexes();
+		return this.getMyName() == rebro.getMyName() && this.getBindedVertexe() == rebro
+				.getBindedVertexe();
 	}
 	
 	public int getNameFromVertex(OrientedVertex orientedVertex) {

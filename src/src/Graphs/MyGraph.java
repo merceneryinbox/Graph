@@ -4,18 +4,18 @@ import java.util.List;
 import java.util.Objects;
 
 public class MyGraph {
-	List<OrientedVertex> graph;
+	List<OrientedVertex> vertexesList;
 	
-	public MyGraph(List<OrientedVertex> graph) {
-		this.graph = graph;
+	public MyGraph(List<OrientedVertex> vertexesList) {
+		this.vertexesList = vertexesList;
 	}
 	
-	public List<OrientedVertex> getGraph( ) {
-		return graph;
+	public List<OrientedVertex> getAllVertexes( ) {
+		return vertexesList;
 	}
 	
-	public void setGraph(List<OrientedVertex> graph) {
-		this.graph = graph;
+	private void setGraph(List<OrientedVertex> graph) {
+		this.vertexesList = vertexesList;
 	}
 	
 	@Override
@@ -27,21 +27,21 @@ public class MyGraph {
 			return false;
 		}
 		MyGraph myGraph = (MyGraph)o;
-		return Objects.equals(getGraph(), myGraph.getGraph());
+		return Objects.equals(getAllVertexes(), myGraph.getAllVertexes());
 	}
 	
 	@Override
 	public int hashCode( ) {
 		
-		return Objects.hash(getGraph());
+		return Objects.hash(getAllVertexes());
 	}
 	
 	@Override
 	public String toString( ) {
-		StringBuilder myGraphInString = new StringBuilder();
-		for(int i = 0; i < graph.size(); i++) {
-			myGraphInString.append(graph.get(i).getBindedOrientedVertixes());
+		StringBuilder myVertexesListInString = new StringBuilder();
+		for(int i = 0; i < vertexesList.size(); i++) {
+			myVertexesListInString.append(vertexesList.get(i).getBindedOrientedVertixes());
 		}
-		return "MyGraph{" + "graph=" + myGraphInString.toString() + '}';
+		return "vertexesList{" + "vertexesList=" + myVertexesListInString.toString() + '}';
 	}
 }

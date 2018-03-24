@@ -4,18 +4,24 @@ import java.util.List;
 import java.util.Objects;
 
 public class OrientedVertex {
-	public List<OrientedVertex> getBindedOrientedVertixes( ) {
+	private OrientedVertex[] sublings;
+	
+	public List<int[]> getBindedOrientedVertixes( ) {
 		return bindedOrientedVertixes;
 	}
 	
-	public void setBindedOrientedVertixes(List<OrientedVertex> bindedOrientedVertixes) {
+	public void setBindedOrientedVertixes(List<int[]> bindedOrientedVertixes) {
 		this.bindedOrientedVertixes = bindedOrientedVertixes;
 	}
 	
-	private List<OrientedVertex> bindedOrientedVertixes;
+	public OrientedVertex(int nameOfVertex) {
+		this.nameOfVertex = nameOfVertex;
+	}
+	
+	private List<int[]>          bindedOrientedVertixes;
 	private int                  nameOfVertex;
 	
-	public OrientedVertex(List<OrientedVertex> bindedOrientedVertixes, int nameOfVertex) {
+	public OrientedVertex(List<int[]> bindedOrientedVertixes, int nameOfVertex) {
 		this.bindedOrientedVertixes = bindedOrientedVertixes;
 		this.nameOfVertex = nameOfVertex;
 	}
@@ -46,4 +52,7 @@ public class OrientedVertex {
 		this.nameOfVertex = nameOfVertex;
 	}
 	
+	public OrientedVertex[] getSublings( ) {
+		return new OrientedVertex[0];
+	}
 }
