@@ -6,6 +6,10 @@ import java.util.Objects;
 public class OrientedVertex {
 	private OrientedVertex[] sublings;
 	
+	public void setSublings(OrientedVertex[] sublings) {
+		this.sublings = sublings;
+	}
+	
 	public List<int[]> getBindedOrientedVertixes( ) {
 		return bindedOrientedVertixes;
 	}
